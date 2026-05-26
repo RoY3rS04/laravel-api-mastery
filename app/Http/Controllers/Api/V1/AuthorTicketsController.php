@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Controllers\Controller;
 use App\Http\Filters\V1\TicketFilter;
 use App\Http\Resources\V1\TicketResource;
 use App\Models\Ticket;
-use Illuminate\Http\Request;
 
-class ApiV1AuthorTicketsController extends Controller
+class AuthorTicketsController extends Controller
 {
     public function index(string $author_id, TicketFilter $filters) {
         return TicketResource::collection(
