@@ -8,7 +8,7 @@ use App\Http\Requests\Api\V1\UpdateUserRequest;
 use App\Http\Resources\V1\UserResource;
 use App\Models\User;
 
-class UsersController extends ApiController
+class AuthorsController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -32,18 +32,18 @@ class UsersController extends ApiController
     /**
      * Display the specified resource.
      */
-    public function show(User $user): UserResource
+    public function show(User $author): UserResource
     {
         if ($this->include('tickets')) {
-            return new UserResource($user->load(['tickets']));
+            return new UserResource($author->load(['tickets']));
         }
-        return new UserResource($user);
+        return new UserResource($author);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUserRequest $request, User $user)
+    public function update(UpdateUserRequest $request, User $author)
     {
         //
     }
@@ -51,7 +51,7 @@ class UsersController extends ApiController
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(User $author)
     {
         //
     }
