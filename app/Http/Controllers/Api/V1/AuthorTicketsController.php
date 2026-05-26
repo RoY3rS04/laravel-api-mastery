@@ -60,7 +60,7 @@ class AuthorTicketsController extends ApiController
         try {
             $ticket = Ticket::findOrFail($ticket_id);
 
-            if ($ticket->user_id ===  $author_id) {
+            if ($ticket->user_id === $author_id) {
                 $ticket->update($request->mappedAttributes());
 
                 return new TicketResource($ticket->fresh());
